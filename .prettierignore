@@ -3,6 +3,7 @@ build
 coverage
 
 *.html
+*.css
 *.md
 *.yaml
 *.yml
