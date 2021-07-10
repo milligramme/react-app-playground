@@ -21,7 +21,7 @@ import {
 } from "@material-ui/icons";
 
 import classes from "./classes.module.css";
-import { IProps } from "./types";
+import { IProps, ListMap } from "./types";
 
 const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
@@ -29,6 +29,29 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
   const handleDrawerToggle = useCallback(() => {
     setOpenDrawer((openDrawer) => !openDrawer);
   }, []);
+
+  const listMaps: ListMap[] = [
+    {
+      title: "Home",
+      icon: <HomeIcon />,
+      to: "/"
+    },
+    {
+      title: "Todos",
+      icon: <TodosIcon />,
+      to: "/todos"
+    },
+    {
+      title: "About",
+      icon: <InfoIcon />,
+      to: "/about"
+    },
+    {
+      title: "Showcase",
+      icon: <ShowcaseIcon />,
+      to: "/showcase"
+    }
+  ];
 
   return (
     <Container classes={{ root: classes.Container }}>
@@ -39,38 +62,14 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
           </IconButton>
           <Drawer anchor="left" open={openDrawer} onClose={handleDrawerToggle}>
             <List onClick={handleDrawerToggle}>
-              <ListItem>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText>
-                  <Link to="/">Home</Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <TodosIcon />
-                </ListItemIcon>
-                <ListItemText>
-                  <Link to="/todos">Todos</Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <InfoIcon />
-                </ListItemIcon>
-                <ListItemText>
-                  <Link to="/about">About</Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <ShowcaseIcon />
-                </ListItemIcon>
-                <ListItemText>
-                  <Link to="/showcase">Showcase</Link>
-                </ListItemText>
-              </ListItem>
+              {listMaps.map((list) => (
+                <ListItem key={list.to}>
+                  <ListItemIcon>{list.icon}</ListItemIcon>
+                  <ListItemText>
+                    <Link to={list.to}>{list.title}</Link>
+                  </ListItemText>
+                </ListItem>
+              ))}
             </List>
           </Drawer>
         </Toolbar>
