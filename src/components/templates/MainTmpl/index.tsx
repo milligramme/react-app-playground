@@ -60,11 +60,18 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
           <IconButton onClick={handleDrawerToggle}>
             <MenuIcon />
           </IconButton>
-          <Drawer anchor="left" open={openDrawer} onClose={handleDrawerToggle}>
+          <Drawer
+            classes={{ paper: classes.DrawerPaper }}
+            anchor="left"
+            open={openDrawer}
+            onClose={handleDrawerToggle}
+          >
             <List onClick={handleDrawerToggle}>
               {listMaps.map((list) => (
                 <ListItem button={true} key={list.to}>
-                  <ListItemIcon>{list.icon}</ListItemIcon>
+                  <ListItemIcon classes={{ root: classes.ListItemIcon }}>
+                    {list.icon}
+                  </ListItemIcon>
                   <ListItemText>
                     <Link to={list.to}>{list.title}</Link>
                   </ListItemText>
