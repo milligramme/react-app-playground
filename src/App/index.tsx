@@ -20,6 +20,9 @@ import {
   ShoppingCart as ShowcaseIcon
 } from "@material-ui/icons";
 
+import Home from "components/pages/Home";
+import About from "components/pages/About";
+import Todos from "components/pages/Todos";
 import Showcase from "components/pages/Showcase";
 import classes from "./classes.module.css";
 
@@ -54,18 +57,18 @@ const App: React.FunctionComponent = () => {
                 </ListItem>
                 <ListItem>
                   <ListItemIcon>
-                    <InfoIcon />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <Link to="/about">About</Link>
-                  </ListItemText>
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
                     <TodosIcon />
                   </ListItemIcon>
                   <ListItemText>
                     <Link to="/todos">Todos</Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link to="/about">About</Link>
                   </ListItemText>
                 </ListItem>
                 <ListItem>
@@ -98,9 +101,5 @@ const App: React.FunctionComponent = () => {
     </Router>
   );
 };
-
-const About: React.FunctionComponent = () => <h2>About</h2>;
-const Todos: React.FunctionComponent = () => <h2>Todos</h2>;
-const Home: React.FunctionComponent = () => <h2>Home</h2>;
 
 export default App;
