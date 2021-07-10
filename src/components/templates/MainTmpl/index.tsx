@@ -63,7 +63,7 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
           <Drawer anchor="left" open={openDrawer} onClose={handleDrawerToggle}>
             <List onClick={handleDrawerToggle}>
               {listMaps.map((list) => (
-                <ListItem key={list.to}>
+                <ListItem button={true} key={list.to}>
                   <ListItemIcon>{list.icon}</ListItemIcon>
                   <ListItemText>
                     <Link to={list.to}>{list.title}</Link>
