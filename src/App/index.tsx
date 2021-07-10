@@ -1,27 +1,85 @@
+import { useState, useCallback } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import {
+  Container,
+  AppBar,
+  IconButton,
+  Toolbar,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
+} from "@material-ui/core";
+import {
+  Menu as MenuIcon,
+  Home as HomeIcon,
+  Info as InfoIcon,
+  FormatListBulleted as TodosIcon,
+  ShoppingCart as ShowcaseIcon
+} from "@material-ui/icons";
+
 import Showcase from "components/pages/Showcase";
+import classes from "./classes.module.css";
 
 const App: React.FunctionComponent = () => {
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+
+  const handleDrawerToggle = useCallback(() => {
+    setOpenDrawer((openDrawer) => !openDrawer);
+  }, []);
+
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/todos">Todos</Link>
-            </li>
-            <li>
-              <Link to="/showcase">Showcase</Link>
-            </li>
-          </ul>
-        </nav>
+      <Container classes={{ root: classes.Container }}>
+        <AppBar>
+          <Toolbar>
+            <IconButton onClick={handleDrawerToggle}>
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="left"
+              open={openDrawer}
+              onClose={handleDrawerToggle}
+            >
+              <List onClick={handleDrawerToggle}>
+                <ListItem>
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link to="/">Home</Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link to="/about">About</Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <TodosIcon />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link to="/todos">Todos</Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <ShowcaseIcon />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Link to="/showcase">Showcase</Link>
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </Drawer>
+          </Toolbar>
+        </AppBar>
         <Switch>
           <Route path="/about">
             <About />
@@ -36,7 +94,7 @@ const App: React.FunctionComponent = () => {
             <Home />
           </Route>
         </Switch>
-      </div>
+      </Container>
     </Router>
   );
 };
