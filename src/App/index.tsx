@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import Showcase from "components/pages/Showcase";
+
 const App: React.FunctionComponent = () => {
   return (
     <Router>
@@ -15,6 +17,9 @@ const App: React.FunctionComponent = () => {
             <li>
               <Link to="/todos">Todos</Link>
             </li>
+            <li>
+              <Link to="/showcase">Showcase</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -23,6 +28,9 @@ const App: React.FunctionComponent = () => {
           </Route>
           <Route path="/todos">
             <Todos />
+          </Route>
+          <Route path="/showcase">
+            <Showcase />
           </Route>
           <Route path="/">
             <Home />
