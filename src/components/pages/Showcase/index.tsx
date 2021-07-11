@@ -1,3 +1,5 @@
+import { useState, useCallback } from "react";
+
 import {
   Container,
   Box,
@@ -9,14 +11,29 @@ import {
   FilledInput,
   TextField,
   CircularProgress,
-  LinearProgress
+  LinearProgress,
+  Snackbar,
+  IconButton
 } from "@material-ui/core";
-import { Info as InfoIcon } from "@material-ui/icons";
+import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
 import classes from "./classes.module.css";
 import MainTmpl from "components/templates/MainTmpl";
 
 const Showcase: React.FunctionComponent = () => {
+  const [showSnackbar, setShowSnackbar] = useState(false);
+
+  const handleSnackbarShow = useCallback(() => {
+    setShowSnackbar(true);
+  }, []);
+
+  const handleSnackbarHide = useCallback((_e, reason?) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setShowSnackbar(false);
+  }, []);
+
   return (
     <MainTmpl>
       <Container>
@@ -137,6 +154,34 @@ const Showcase: React.FunctionComponent = () => {
             <div className={classes.Items} style={{ width: 320 }}>
               <LinearProgress />
               <LinearProgress color="secondary" />
+            </div>
+          </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Notification</Typography>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>snackbar</Typography>
+            <div className={classes.Items}>
+              <Button variant="outlined" onClick={handleSnackbarShow}>
+                Open snackbar
+              </Button>
+              <Snackbar
+                open={showSnackbar}
+                anchorOrigin={{ horizontal: "right", vertical: "top" }}
+                autoHideDuration={6000}
+                onClose={handleSnackbarHide}
+                message="Snack! hide after 6sec."
+                action={
+                  <IconButton
+                    color="inherit"
+                    size="small"
+                    onClick={handleSnackbarHide}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                }
+              />
             </div>
           </Paper>
         </Box>
