@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -7,10 +6,7 @@ import {
   IconButton,
   Toolbar,
   Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText
+  List
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
@@ -22,6 +18,7 @@ import {
 
 import classes from "./classes.module.css";
 import { IProps, ListMap } from "./types";
+import DrawerListItem from "./DrawerListItem";
 
 const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
@@ -68,14 +65,7 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
           >
             <List onClick={handleDrawerToggle}>
               {listMaps.map((list) => (
-                <ListItem button={true} key={list.to}>
-                  <ListItemIcon classes={{ root: classes.ListItemIcon }}>
-                    {list.icon}
-                  </ListItemIcon>
-                  <ListItemText>
-                    <Link to={list.to}>{list.title}</Link>
-                  </ListItemText>
-                </ListItem>
+                <DrawerListItem list={list} key={list.to} />
               ))}
             </List>
           </Drawer>
