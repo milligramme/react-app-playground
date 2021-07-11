@@ -7,6 +7,6 @@
   align-content: center;
 }
 
-.Items > * {
+.Items.Items > * {
   margin-right: 16px;
 }
