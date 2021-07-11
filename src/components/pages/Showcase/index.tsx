@@ -8,7 +8,6 @@ import {
   Paper,
   Input,
   OutlinedInput,
-  FilledInput,
   TextField,
   CircularProgress,
   LinearProgress,
@@ -24,7 +23,12 @@ import {
   FormControl,
   FormLabel,
   Radio,
-  RadioGroup
+  RadioGroup,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormHelperText,
+  Switch
 } from "@material-ui/core";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
@@ -34,6 +38,7 @@ import MainTmpl from "components/templates/MainTmpl";
 const Showcase: React.FunctionComponent = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const handleSnackbarShow = useCallback(() => {
     setShowSnackbar(true);
@@ -57,44 +62,76 @@ const Showcase: React.FunctionComponent = () => {
     setOpenDialog(false);
   }, []);
 
+  const handleErrorSwitch = useCallback((e) => {
+    setHasError(e.currentTarget.checked);
+  }, []);
+
   return (
     <MainTmpl>
       <Container>
+        <Box>
+          <FormControlLabel
+            label="error"
+            control={<Switch checked={hasError} onChange={handleErrorSwitch} />}
+          />
+        </Box>
         <Box>
           <Typography variant="h4">TextField</Typography>
           <Paper classes={{ root: classes.LayoutPaper }}>
             <Typography>standard input</Typography>
             <div className={classes.Items}>
-              <Input />
-              <TextField label="label" />
-              <TextField label="label" InputLabelProps={{ shrink: true }} />
-              <TextField label="label" error={true} />
+              <Input error={hasError} />
+              <TextField label="label" error={hasError} />
+              <TextField
+                label="label"
+                error={hasError}
+                InputLabelProps={{ shrink: true }}
+              />
             </div>
           </Paper>
           <Paper classes={{ root: classes.LayoutPaper }}>
             <Typography>outlined input</Typography>
             <div className={classes.Items}>
-              <OutlinedInput />
-              <TextField label="label" variant="outlined" />
+              <OutlinedInput error={hasError} />
+              <TextField label="label" variant="outlined" error={hasError} />
               <TextField
                 label="label"
                 variant="outlined"
                 InputLabelProps={{ shrink: true }}
+                error={hasError}
               />
-              <TextField label="label" variant="outlined" error={true} />
             </div>
           </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Select</Typography>
           <Paper classes={{ root: classes.LayoutPaper }}>
-            <Typography>filled input</Typography>
+            <Typography>select</Typography>
             <div className={classes.Items}>
-              <FilledInput />
-              <TextField label="label" variant="filled" />
-              <TextField
-                label="label"
-                variant="filled"
-                InputLabelProps={{ shrink: true }}
-              />
-              <TextField label="label" variant="filled" error={true} />
+              <FormControl error={hasError}>
+                <InputLabel shrink={true}>Age</InputLabel>
+                <Select displayEmpty>
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+                <FormHelperText>additional helper text</FormHelperText>
+              </FormControl>
+              <FormControl variant="outlined" error={hasError}>
+                <Select displayEmpty>
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+                <FormHelperText>additional helper text</FormHelperText>
+              </FormControl>
             </div>
           </Paper>
         </Box>
