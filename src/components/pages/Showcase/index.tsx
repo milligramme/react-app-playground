@@ -20,7 +20,11 @@ import {
   DialogActions,
   Checkbox,
   FormControlLabel,
-  FormGroup
+  FormGroup,
+  FormControl,
+  FormLabel,
+  Radio,
+  RadioGroup
 } from "@material-ui/core";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
@@ -147,6 +151,54 @@ const Showcase: React.FunctionComponent = () => {
                   label="disabled"
                 />
               </FormGroup>
+            </div>
+          </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Radio</Typography>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>radio</Typography>
+            <div className={classes.Items}>
+              <FormControl>
+                <Radio checked={false} color="secondary" />
+                <Radio checked={false} color="primary" />
+                <Radio checked={false} disabled={true} />
+                <Radio disabled={true} checked={true} />
+              </FormControl>
+            </div>
+          </Paper>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>radio with label</Typography>
+            <div className={classes.Items}>
+              <FormControl>
+                <FormLabel>row true</FormLabel>
+                <RadioGroup row={true}>
+                  <FormControlLabel value="a" control={<Radio />} label="a" />
+                  <FormControlLabel value="b" control={<Radio />} label="b" />
+                  <FormControlLabel value="c" control={<Radio />} label="c" />
+                </RadioGroup>
+              </FormControl>
+              <FormControl>
+                <FormLabel>row false</FormLabel>
+                <RadioGroup row={false}>
+                  <FormControlLabel
+                    value="a"
+                    control={<Radio color="primary" />}
+                    label="a"
+                  />
+                  <FormControlLabel
+                    value="b"
+                    control={<Radio color="primary" />}
+                    label="b"
+                  />
+                  <FormControlLabel
+                    value="c"
+                    control={<Radio color="primary" />}
+                    label="c"
+                  />
+                </RadioGroup>
+              </FormControl>
             </div>
           </Paper>
         </Box>
