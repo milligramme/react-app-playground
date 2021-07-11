@@ -10,3 +10,7 @@
 .Items.Items > * {
   margin-right: 16px;
 }
+
+.Dialog.Dialog {
+  width: 480px;
+}

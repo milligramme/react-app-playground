@@ -13,7 +13,11 @@ import {
   CircularProgress,
   LinearProgress,
   Snackbar,
-  IconButton
+  IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions
 } from "@material-ui/core";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
@@ -22,6 +26,7 @@ import MainTmpl from "components/templates/MainTmpl";
 
 const Showcase: React.FunctionComponent = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const handleSnackbarShow = useCallback(() => {
     setShowSnackbar(true);
@@ -32,6 +37,17 @@ const Showcase: React.FunctionComponent = () => {
       return;
     }
     setShowSnackbar(false);
+  }, []);
+
+  const handleDialogOpen = useCallback(() => {
+    setOpenDialog(true);
+  }, []);
+
+  const handleDialogClose = useCallback((_e, reason?) => {
+    if (reason === "backdropClick") {
+      return;
+    }
+    setOpenDialog(false);
   }, []);
 
   return (
@@ -182,6 +198,37 @@ const Showcase: React.FunctionComponent = () => {
                   </IconButton>
                 }
               />
+            </div>
+          </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Dialog</Typography>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>dialog</Typography>
+            <div className={classes.Items}>
+              <Button variant="outlined" onClick={handleDialogOpen}>
+                Open dialog
+              </Button>
+              <Dialog
+                classes={{ paper: classes.Dialog }}
+                disableEscapeKeyDown={true}
+                open={openDialog}
+                onClose={handleDialogClose}
+              >
+                <DialogTitle>Dialog title</DialogTitle>
+                <DialogContent>
+                  lLorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nulla dictum blandit mi sed placerat. Aenean interdum sed quam
+                  eu vehicula. Vivamus dictum non est in rutrum. Aliquam non
+                  urna purus. Sed euismod, lacus sed aliquam sodales, dolor ex
+                  dapibus nunc, in sodales tortor libero et nibh. Quisque
+                  sollicitudin ultricies tellus, eget ultricies risus mattis eu.{" "}
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleDialogClose}>ok</Button>
+                </DialogActions>
+              </Dialog>
             </div>
           </Paper>
         </Box>
