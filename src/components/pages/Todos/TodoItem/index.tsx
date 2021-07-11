@@ -16,10 +16,10 @@ const TodoItem: React.FunctionComponent<IProps> = ({ id, toggle }) => {
     <TableRow classes={{ root: classes.TableBodyRow }}>
       <TableCell>{id}</TableCell>
       <TableCell>
-        <OutlinedInput />
+        <OutlinedInput fullWidth={true} />
       </TableCell>
       <TableCell>
-        <OutlinedInput multiline={true} />
+        <OutlinedInput multiline={true} fullWidth={true} />
       </TableCell>
       <TableCell>
         <IconButton onClick={handleClick}>
