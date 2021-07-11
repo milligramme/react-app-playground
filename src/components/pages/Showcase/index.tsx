@@ -17,7 +17,10 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  DialogActions
+  DialogActions,
+  Checkbox,
+  FormControlLabel,
+  FormGroup
 } from "@material-ui/core";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
@@ -88,6 +91,62 @@ const Showcase: React.FunctionComponent = () => {
                 InputLabelProps={{ shrink: true }}
               />
               <TextField label="label" variant="filled" error={true} />
+            </div>
+          </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Checkbox</Typography>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>checkbox</Typography>
+            <div className={classes.Items}>
+              <FormGroup row={true}>
+                <Checkbox color="secondary" checked={true} />
+                <Checkbox color="primary" checked={true} />
+                <Checkbox color="secondary" checked={true} disabled={true} />
+                <Checkbox color="secondary" disabled={true} />
+              </FormGroup>
+            </div>
+          </Paper>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>checkbox with label</Typography>
+            <div className={classes.Items}>
+              <FormGroup row={true}>
+                <FormControlLabel
+                  control={<Checkbox checked={true} color="secondary" />}
+                  label="color secondary"
+                />
+                <FormControlLabel
+                  control={<Checkbox checked={true} color="primary" />}
+                  label="color primary"
+                />
+                <FormControlLabel
+                  control={<Checkbox disabled={true} checked={true} />}
+                  label="disabled checked"
+                />
+                <FormControlLabel
+                  control={<Checkbox disabled={true} />}
+                  label="disabled"
+                />
+              </FormGroup>
+              <FormGroup row={false}>
+                <FormControlLabel
+                  control={<Checkbox checked={true} color="secondary" />}
+                  label="color secondary"
+                />
+                <FormControlLabel
+                  control={<Checkbox checked={true} color="primary" />}
+                  label="color primary"
+                />
+                <FormControlLabel
+                  control={<Checkbox disabled={true} checked={true} />}
+                  label="disabled checked"
+                />
+                <FormControlLabel
+                  control={<Checkbox disabled={true} />}
+                  label="disabled"
+                />
+              </FormGroup>
             </div>
           </Paper>
         </Box>
