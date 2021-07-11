@@ -1,20 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "connected-react-router";
 
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 
 import "./index.css";
 import App from "./App";
+import { configureStore, history } from "state/Store";
 import reportWebVitals from "./reportWebVitals";
 import muiThemeOptions from "./MuiThemeOptions";
 
 const theme = createTheme(muiThemeOptions);
+const { store } = configureStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <App />
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <MuiThemeProvider theme={theme}>
+          <App />
+        </MuiThemeProvider>
+      </ConnectedRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
