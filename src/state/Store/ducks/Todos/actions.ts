@@ -10,7 +10,10 @@ export const addTodo = (id: string): AddTodoAction => ({
   payload: { id }
 });
 
-export const toggleTodo = (id: string, show: boolean): ToggleTodoAction => ({
+export const toggleTodo = (
+  id: string,
+  completed: boolean
+): ToggleTodoAction => ({
   type: TOGGLE_TODO,
-  payload: { id, show }
+  payload: { id, completed }
 });

@@ -4,7 +4,7 @@ interface Todo {
   title: string;
   description: string;
   id: string;
-  show: boolean;
+  completed: boolean;
 }
 
 export interface TodosState {

@@ -17,7 +17,12 @@ export const createTodosReducer =
           ...state,
           todos: [
             ...state.todos,
-            { title: "", description: "", id: action.payload.id, show: true }
+            {
+              title: "",
+              description: "",
+              id: action.payload.id,
+              completed: false
+            }
           ]
         };
       case TOGGLE_TODO: {
@@ -32,7 +37,7 @@ export const createTodosReducer =
                 ...state.todos.slice(0, index),
                 {
                   ...state.todos[index],
-                  show: action.payload.show
+                  completed: !state.todos[index].completed
                 },
                 ...state.todos.slice(index + 1)
               ]

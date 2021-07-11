@@ -14,7 +14,7 @@ export interface ToggleTodoAction extends Action {
   type: typeof TOGGLE_TODO;
   payload: {
     id: string;
-    show: boolean;
+    completed: boolean;
   };
 }
 
