@@ -7,7 +7,9 @@ import {
   Input,
   OutlinedInput,
   FilledInput,
-  TextField
+  TextField,
+  CircularProgress,
+  LinearProgress
 } from "@material-ui/core";
 import { Info as InfoIcon } from "@material-ui/icons";
 
@@ -117,6 +119,24 @@ const Showcase: React.FunctionComponent = () => {
               >
                 Link
               </Button>
+            </div>
+          </Paper>
+        </Box>
+
+        <Box>
+          <Typography variant="h4">Loading</Typography>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>circular</Typography>
+            <div className={classes.Items}>
+              <CircularProgress />
+              <CircularProgress color="secondary" />
+            </div>
+          </Paper>
+          <Paper classes={{ root: classes.LayoutPaper }}>
+            <Typography>linear</Typography>
+            <div className={classes.Items} style={{ width: 320 }}>
+              <LinearProgress />
+              <LinearProgress color="secondary" />
             </div>
           </Paper>
         </Box>
