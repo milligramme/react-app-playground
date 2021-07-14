@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 } from "uuid";
 
@@ -12,7 +12,8 @@ import {
   TableRow,
   TableCell,
   TableHead,
-  Paper
+  Paper,
+  TablePagination
 } from "@material-ui/core";
 import { AddCircle as AddIcon } from "@material-ui/icons";
 
@@ -23,9 +24,35 @@ import { addTodo, toggleTodo } from "state/Store/ducks/Todos/actions";
 import TodoItem from "./TodoItem";
 
 const Todos: React.FunctionComponent = () => {
+  const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(5);
+  const rowsPerPageOptions = [5, 10, 20];
   const dispatch = useDispatch();
   const { todos } = useSelector<GlobalState, TodosState>(
     (state) => state.todos
+  );
+
+  const handlePageChange = useCallback(
+    (
+      _e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
+      page: number
+    ) => {
+      setPage(page);
+    },
+    []
+  );
+  const handleRowsPerPageChange = useCallback(
+    (
+      event:
+        | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+        | undefined
+    ) => {
+      if (event === undefined) return;
+
+      setLimit(parseInt(event.target.value, 10));
+      setPage(0);
+    },
+    []
   );
 
   const handleTodoCreate = useCallback(() => {
@@ -41,7 +68,7 @@ const Todos: React.FunctionComponent = () => {
   return (
     <MainTmpl>
       <Box>
-        <Typography variant="h6">Todos</Typography>
+        <Typography variant="h6">Todos page {page + 1}</Typography>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -55,11 +82,21 @@ const Todos: React.FunctionComponent = () => {
             <TableBody>
               {todos
                 .filter((t) => !t.completed)
+                .slice(page * limit, (page + 1) * limit)
                 .map((t) => (
                   <TodoItem id={t.id} toggle={handleTodoCompleted} key={t.id} />
                 ))}
             </TableBody>
           </Table>
+          <TablePagination
+            component="div"
+            page={page}
+            onPageChange={handlePageChange}
+            onRowsPerPageChange={handleRowsPerPageChange}
+            count={todos.filter((t) => !t.completed).length}
+            rowsPerPage={limit}
+            rowsPerPageOptions={rowsPerPageOptions}
+          />
         </TableContainer>
         <Button
           startIcon={<AddIcon />}
