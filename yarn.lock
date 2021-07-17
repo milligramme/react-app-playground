@@ -2623,6 +2623,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/p5@npm:0.9.1":
+  version: 0.9.1
+  resolution: "@types/p5@npm:0.9.1"
+  checksum: 2a1adee39fc433b5edd8688bddf8a8efbfe4bde468274caf93301c0123116bc671496f766e6737ea330680ae9cfaef51727681c042d9b2ca4f806843a7e7a859
+  languageName: node
+  linkType: hard
+
+"@types/p5@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@types/p5@npm:1.3.0"
+  checksum: 1a476a0ac1be613eaab3e2585d9819c91eac413c274bfc7e822b0ecc3f47851a277e3c05e19e05ec2c5ac48f0bf8412c326589bec3594c43b47c6c024d056a13
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -10904,6 +10918,7 @@ fsevents@^1.2.7:
     "@testing-library/user-event": ^12.1.10
     "@types/jest": ^26.0.15
     "@types/node": ^12.0.0
+    "@types/p5": ^1.3.0
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     "@types/react-redux": ^7.1.18
@@ -10926,6 +10941,7 @@ fsevents@^1.2.7:
     prettier-eslint: ^12.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-p5: ^1.3.19
     react-redux: ^7.2.4
     react-router-dom: ^5.2.0
     react-scripts: 4.0.3
@@ -11450,6 +11466,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"opencollective-postinstall@npm:2.0.2":
+  version: 2.0.2
+  resolution: "opencollective-postinstall@npm:2.0.2"
+  bin:
+    opencollective-postinstall: index.js
+  checksum: f71a908d0958a321c260050b5e9e78cbde59598e21df2dfb121b3721514db288ccdeb1d39b3ff0f9e81d85e661e5a2b3e3cd47fa1ab04feefca31facd58a5ca5
+  languageName: node
+  linkType: hard
+
 "opn@npm:^5.5.0":
   version: 5.5.0
   resolution: "opn@npm:5.5.0"
@@ -11619,6 +11644,13 @@ fsevents@^1.2.7:
   version: 2.2.0
   resolution: "p-try@npm:2.2.0"
   checksum: 20983f3765466c1ab617ed153cb53b70ac5df828d854a3334d185e20b37f436e9096f12bc1b7fc96d8908dc927a3685172d3d89e755774f57b7103460c54dcc5
+  languageName: node
+  linkType: hard
+
+"p5@npm:1.1.9":
+  version: 1.1.9
+  resolution: "p5@npm:1.1.9"
+  checksum: c06337c06fa565597081c6a5b71722d1c4a7c65a43726aa13dcf45b076dc59128c0c6a3ed64b7295dd81488ba850efe2552cb3e9829c9ab5e7f26f333a4cf3b8
   languageName: node
   linkType: hard
 
@@ -13268,6 +13300,20 @@ fsevents@^1.2.7:
   version: 17.0.1
   resolution: "react-is@npm:17.0.1"
   checksum: 5a83dfc78e7adcb93d632bf367b0733db650e3abd2e9c57c33b87e50d201212c1884b0d7bcf13e692f1556189fa1b87f9f3e0ba10fe858fd6aebe83ed4fcd1ea
+  languageName: node
+  linkType: hard
+
+"react-p5@npm:^1.3.19":
+  version: 1.3.19
+  resolution: "react-p5@npm:1.3.19"
+  dependencies:
+    "@types/p5": 0.9.1
+    opencollective-postinstall: 2.0.2
+    p5: 1.1.9
+  peerDependencies:
+    react: ">= 17.0.1"
+    react-dom: ">= 17.0.1"
+  checksum: da58e53b14497b4106cb34871a9f00379b4ab9f82691dc9b79bdafea45edaa9c8ec508d446d5e69921951a02e8bd004e825d16c3f362b7300e8a14b58916e7ae
   languageName: node
   linkType: hard
 
