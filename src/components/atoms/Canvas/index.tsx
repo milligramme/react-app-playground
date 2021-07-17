@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, createRef } from "react";
 import p5 from "p5";
 
 interface CanvasProps {
@@ -7,13 +7,16 @@ interface CanvasProps {
 }
 
 const Canvas = (props: CanvasProps) => {
+  const wrapper = createRef<HTMLDivElement>();
+
   useEffect(() => {
-    const p5instance = new p5(props.sketch);
+    if (wrapper.current === null) return;
+    const p5instance = new p5(props.sketch, wrapper.current);
 
     // remove instance on unmount
     return () => p5instance.remove();
   }, [props.sketch]);
 
-  return <></>;
+  return <div ref={wrapper} />;
 };
 export default Canvas;
