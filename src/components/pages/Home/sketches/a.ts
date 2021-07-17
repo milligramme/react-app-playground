@@ -7,11 +7,11 @@ const sketch = (p5: p5) => {
   };
 
   p5.draw = () => {
-    p5.fill(255);
-    p5.strokeWeight(3);
-    p5.stroke(((p5.frameCount % 360) / 360) * 255);
+    p5.stroke(255);
+    p5.strokeWeight(1);
+    p5.fill(((p5.frameCount % 360) / 360) * 255);
     p5.push();
-    p5.ellipse(p5.mouseX, p5.mouseY, 80, 80);
+    p5.ellipse(p5.width * Math.random(), p5.height * Math.random(), 12, 12);
     p5.pop();
   };
 };
