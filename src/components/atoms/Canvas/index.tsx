@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import p5 from "p5";
 
-const Canvas = (props: any) => {
+interface CanvasProps {
+  [key: string]: unknown;
+  sketch: (p5: p5) => void;
+}
+
+const Canvas = (props: CanvasProps) => {
   useEffect(() => {
     const p5instance = new p5(props.sketch);
 

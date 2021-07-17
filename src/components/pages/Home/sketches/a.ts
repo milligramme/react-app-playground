@@ -1,4 +1,6 @@
-const sketch = (p5: any) => {
+import p5 from "p5";
+
+const sketch = (p5: p5) => {
   p5.setup = () => {
     p5.createCanvas(640, 480);
     p5.frameRate(12);
