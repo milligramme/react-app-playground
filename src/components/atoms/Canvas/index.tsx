@@ -15,7 +15,7 @@ const Canvas = (props: CanvasProps) => {
 
     // remove instance on unmount
     return () => p5instance.remove();
-  }, [props.sketch]);
+  }, [wrapper, props.sketch]);
 
   return <div ref={wrapper} />;
 };
