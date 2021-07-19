@@ -1,10 +1,18 @@
 import { ThemeOptions } from "@material-ui/core/styles/createTheme";
 
 const muiThemeOptions: ThemeOptions = {
-  overrides: {},
+  overrides: {
+    MuiButton: {
+      sizeSmall: { fontSize: 12, fontWeight: 600 },
+      label: { textTransform: "none" }
+    }
+  },
   props: {
     MuiButton: {
       size: "small",
+      disableRipple: true
+    },
+    MuiButtonBase: {
       disableRipple: true
     },
     MuiFilledInput: {
