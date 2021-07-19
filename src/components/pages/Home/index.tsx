@@ -4,7 +4,7 @@ import { Box, Typography } from "@material-ui/core";
 
 import MainTmpl from "components/templates/MainTmpl";
 import Canvas from "components/atoms/Canvas";
-import sketch from "./sketches/a";
+import sketch from "static/sketches/a";
 
 const Home: React.FunctionComponent = () => {
   const [status, setStatus] = useState("idle");

@@ -1,5 +1,8 @@
 import { useState, useCallback } from "react";
 
+import Canvas from "components/atoms/Canvas";
+import sketch from "static/sketches/b";
+
 import {
   Container,
   AppBar,
@@ -57,6 +60,7 @@ const MainTmpl: React.FunctionComponent<IProps> = ({ children }) => {
           <IconButton onClick={handleDrawerToggle}>
             <MenuIcon />
           </IconButton>
+          <Canvas sketch={sketch} />
           <Drawer
             classes={{ paper: classes.DrawerPaper }}
             anchor="left"
