@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "components/pages/Home";
 import About from "components/pages/About";
 import Todos from "components/pages/Todos";
+import Forms from "components/pages/Forms";
 import Showcase from "components/pages/Showcase";
 
 const App: React.FunctionComponent = () => {
@@ -14,6 +15,9 @@ const App: React.FunctionComponent = () => {
         </Route>
         <Route path="/todos">
           <Todos />
+        </Route>
+        <Route path="/forms">
+          <Forms />
         </Route>
         <Route path="/showcase">
           <Showcase />

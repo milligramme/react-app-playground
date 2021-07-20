@@ -27,6 +27,11 @@ const listMaps: ListMap[] = [
     to: "/about"
   },
   {
+    title: "Forms",
+    icon: <InfoIcon />,
+    to: "/forms"
+  },
+  {
     title: "Showcase",
     icon: <ShowcaseIcon />,
     to: "/showcase"
