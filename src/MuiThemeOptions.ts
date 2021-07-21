@@ -4,6 +4,7 @@ const muiThemeOptions: ThemeOptions = {
   overrides: {
     MuiButton: {
       sizeSmall: { fontSize: 12, fontWeight: 600 },
+      sizeLarge: { fontSize: 16, fontWeight: 600 },
       label: { textTransform: "none" }
     }
   },
