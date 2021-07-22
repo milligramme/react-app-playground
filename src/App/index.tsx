@@ -10,19 +10,19 @@ const App: React.FunctionComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/about">
+        <Route strict={true} exact={true} path="/about">
           <About />
         </Route>
-        <Route path="/todos">
+        <Route strict={true} exact={true} path="/todos">
           <Todos />
         </Route>
-        <Route path="/forms">
+        <Route strict={true} exact={true} path="/forms">
           <Forms />
         </Route>
-        <Route path="/showcase">
+        <Route strict={true} exact={true} path="/showcase">
           <Showcase />
         </Route>
-        <Route path="/">
+        <Route strict={true} exact={true} path="/">
           <Home />
         </Route>
       </Switch>
