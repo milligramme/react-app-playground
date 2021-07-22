@@ -23,7 +23,7 @@ const Home: React.FunctionComponent = () => {
     return () => {
       dispatch(setPageStatus("idle"));
     };
-  }, [setPageStatus]);
+  }, [dispatch]);
 
   return (
     <MainTmpl>
