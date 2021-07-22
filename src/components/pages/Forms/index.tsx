@@ -3,12 +3,11 @@ import { Form, Field } from "react-final-form";
 import { Box, Typography, TextField, Button } from "@material-ui/core";
 
 import MainTmpl from "components/templates/MainTmpl";
+import { sleep } from "lib/helpers";
 
 interface FormValue {
   name: string;
 }
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Forms: React.FunctionComponent = () => {
   const required = (value: FormValue) =>
