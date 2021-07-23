@@ -5,54 +5,54 @@ const muiThemeOptions: ThemeOptions = {
     MuiButton: {
       sizeSmall: { fontSize: 12, fontWeight: 600 },
       sizeLarge: { fontSize: 16, fontWeight: 600 },
-      label: { textTransform: "none" }
-    }
+      label: { textTransform: "none" },
+    },
   },
   props: {
     MuiButton: {
       size: "small",
-      disableRipple: true
+      disableRipple: true,
     },
     MuiButtonBase: {
-      disableRipple: true
+      disableRipple: true,
     },
     MuiFilledInput: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiFormControl: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiFormHelperText: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiIconButton: {
       size: "small",
-      disableRipple: true
+      disableRipple: true,
     },
     MuiInputBase: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiInputLabel: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiListItem: {
-      dense: true
+      dense: true,
     },
     MuiOutlinedInput: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiFab: {
-      size: "small"
+      size: "small",
     },
     MuiTable: {
-      size: "small"
+      size: "small",
     },
     MuiTextField: {
-      margin: "dense"
+      margin: "dense",
     },
     MuiToolbar: {
-      variant: "dense"
-    }
+      variant: "dense",
+    },
   },
   palette: {
     primary: { main: "hsl(120, 75%, 25%)" },
@@ -64,12 +64,12 @@ const muiThemeOptions: ThemeOptions = {
     text: {
       primary: "hsla(0, 0%, 0%, 0.87)",
       secondary: "hsla(0, 0%, 0%, 0.54)",
-      disabled: "hsla(0, 0%, 0%, 0.38)"
-    }
+      disabled: "hsla(0, 0%, 0%, 0.38)",
+    },
   },
   typography: {
-    fontFamily: ["sans-serif"].join(",")
-  }
+    fontFamily: ["sans-serif"].join(","),
+  },
 };
 
 export default muiThemeOptions;

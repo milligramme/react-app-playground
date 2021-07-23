@@ -5,7 +5,7 @@ import {
   AppBar,
   IconButton,
   Toolbar,
-  CircularProgress
+  CircularProgress,
 } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
 
@@ -23,7 +23,7 @@ const CustomAppBar: React.FunctionComponent = () => {
   }, []);
 
   const { status } = useSelector<GlobalState, PageStatusState>(
-    (state) => state.pageStatus
+    (state) => state.pageStatus,
   );
   return (
     <AppBar>

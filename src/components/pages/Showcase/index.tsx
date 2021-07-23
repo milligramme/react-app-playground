@@ -28,7 +28,7 @@ import {
   Select,
   MenuItem,
   FormHelperText,
-  Switch
+  Switch,
 } from "@material-ui/core";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 

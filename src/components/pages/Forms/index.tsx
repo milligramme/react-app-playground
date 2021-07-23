@@ -10,7 +10,7 @@ import {
   Radio,
   RadioGroup,
   TextField,
-  Typography
+  Typography,
 } from "@material-ui/core";
 
 import MainTmpl from "components/templates/MainTmpl";
@@ -67,11 +67,11 @@ const Forms: React.FunctionComponent = () => {
                       variant="outlined"
                       label="name"
                       InputLabelProps={{
-                        shrink: true
+                        shrink: true,
                       }}
                       FormHelperTextProps={{
                         variant: "outlined",
-                        error: !!meta.error
+                        error: !!meta.error,
                       }}
                       helperText={meta.error && meta.touched ? meta.error : ""}
                     />

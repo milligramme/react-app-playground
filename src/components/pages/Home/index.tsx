@@ -13,7 +13,7 @@ import { setPageStatus } from "state/Store/ducks/PageStatus/actions";
 const Home: React.FunctionComponent = () => {
   const dispatch = useDispatch();
   const { status } = useSelector<GlobalState, PageStatusState>(
-    (state) => state.pageStatus
+    (state) => state.pageStatus,
   );
 
   useEffect(() => {

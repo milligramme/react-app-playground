@@ -13,7 +13,7 @@ import {
   TableCell,
   TableHead,
   Paper,
-  TablePagination
+  TablePagination,
 } from "@material-ui/core";
 import { AddCircle as AddIcon } from "@material-ui/icons";
 
@@ -29,30 +29,30 @@ const Todos: React.FunctionComponent = () => {
   const rowsPerPageOptions = [5, 10, 20];
   const dispatch = useDispatch();
   const { todos } = useSelector<GlobalState, TodosState>(
-    (state) => state.todos
+    (state) => state.todos,
   );
 
   const handlePageChange = useCallback(
     (
       _e: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
-      page: number
+      page: number,
     ) => {
       setPage(page);
     },
-    []
+    [],
   );
   const handleRowsPerPageChange = useCallback(
     (
       event:
         | React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-        | undefined
+        | undefined,
     ) => {
       if (event === undefined) return;
 
       setLimit(parseInt(event.target.value, 10));
       setPage(0);
     },
-    []
+    [],
   );
 
   const handleTodoCreate = useCallback(() => {
@@ -62,7 +62,7 @@ const Todos: React.FunctionComponent = () => {
 
   const handleTodoCompleted = useCallback(
     (id: string) => dispatch(toggleTodo(id, true)),
-    [dispatch]
+    [dispatch],
   );
 
   return (

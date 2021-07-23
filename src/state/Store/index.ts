@@ -7,7 +7,7 @@ import { createReducer, GlobalState } from "./ducks";
 export const history = createBrowserHistory();
 
 export const configureStore = (
-  history: History
+  history: History,
 ): { store: Store<GlobalState, LocationChangeAction> } => {
   const store = createStore(createReducer(history), compose(applyMiddleware()));
 

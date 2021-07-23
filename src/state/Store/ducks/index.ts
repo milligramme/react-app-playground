@@ -1,7 +1,7 @@
 import {
   connectRouter,
   LocationChangeAction,
-  RouterState
+  RouterState,
 } from "connected-react-router";
 import { combineReducers, Reducer } from "redux";
 import { History } from "history";
@@ -16,10 +16,10 @@ export interface GlobalState {
 }
 
 export const createReducer = (
-  history: History
+  history: History,
 ): Reducer<GlobalState, LocationChangeAction> =>
   combineReducers({
     router: connectRouter(history),
     todos: createTodosReducer({ todos: [] }),
-    pageStatus: createPageStatusReducer({ status: "idle" })
+    pageStatus: createPageStatusReducer({ status: "idle" }),
   });

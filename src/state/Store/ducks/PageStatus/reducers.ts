@@ -4,7 +4,7 @@ import { PageStatusState } from ".";
 import {
   pageStatusActionTypes,
   PageStatusAction,
-  SET_PAGE_STATUS
+  SET_PAGE_STATUS,
 } from "./types";
 
 const isActionType = (action: Action): action is PageStatusAction =>
@@ -19,7 +19,7 @@ export const createPageStatusReducer =
       case SET_PAGE_STATUS:
         return {
           ...state,
-          status: action.payload.status
+          status: action.payload.status,
         };
     }
   };

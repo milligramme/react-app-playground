@@ -2,7 +2,7 @@ import {
   TableRow,
   TableCell,
   OutlinedInput,
-  IconButton
+  IconButton,
 } from "@material-ui/core";
 import { Done as DoneIcon } from "@material-ui/icons";
 

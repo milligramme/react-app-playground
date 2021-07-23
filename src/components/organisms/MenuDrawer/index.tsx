@@ -3,7 +3,7 @@ import {
   Home as HomeIcon,
   Info as InfoIcon,
   FormatListBulleted as TodosIcon,
-  ShoppingCart as ShowcaseIcon
+  ShoppingCart as ShowcaseIcon,
 } from "@material-ui/icons";
 
 import DrawerListItem from "./DrawerListItem";
@@ -14,28 +14,28 @@ const listMaps: ListMap[] = [
   {
     title: "Home",
     icon: <HomeIcon />,
-    to: "/"
+    to: "/",
   },
   {
     title: "Todos",
     icon: <TodosIcon />,
-    to: "/todos"
+    to: "/todos",
   },
   {
     title: "About",
     icon: <InfoIcon />,
-    to: "/about"
+    to: "/about",
   },
   {
     title: "Forms",
     icon: <InfoIcon />,
-    to: "/forms"
+    to: "/forms",
   },
   {
     title: "Showcase",
     icon: <ShowcaseIcon />,
-    to: "/showcase"
-  }
+    to: "/showcase",
+  },
 ];
 
 const MenuDrawer: React.FunctionComponent<IProps> = ({ open, onClick }) => {

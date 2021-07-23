@@ -21,13 +21,13 @@ export const createTodosReducer =
               title: "",
               description: "",
               id: action.payload.id,
-              completed: false
-            }
-          ]
+              completed: false,
+            },
+          ],
         };
       case TOGGLE_TODO: {
         const index = state.todos.findIndex(
-          (todo) => todo.id === action.payload.id
+          (todo) => todo.id === action.payload.id,
         );
         return index === -1
           ? state
@@ -37,10 +37,10 @@ export const createTodosReducer =
                 ...state.todos.slice(0, index),
                 {
                   ...state.todos[index],
-                  completed: !state.todos[index].completed
+                  completed: !state.todos[index].completed,
                 },
-                ...state.todos.slice(index + 1)
-              ]
+                ...state.todos.slice(index + 1),
+              ],
             };
       }
     }

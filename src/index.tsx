@@ -20,9 +20,9 @@ const queryClient = new QueryClient({
     queries: {
       retry: false,
       refetchOnWindowFocus: false,
-      staleTime: 300000
-    }
-  }
+      staleTime: 300000,
+    },
+  },
 });
 
 ReactDOM.render(
@@ -38,7 +38,7 @@ ReactDOM.render(
       </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function

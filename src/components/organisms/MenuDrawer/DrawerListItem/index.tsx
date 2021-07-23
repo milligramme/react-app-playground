@@ -11,7 +11,7 @@ interface DrawerListItemProps {
 }
 
 const DrawerListItem: React.FunctionComponent<DrawerListItemProps> = ({
-  list
+  list,
 }) => {
   const history = useHistory();
   const location = useLocation();

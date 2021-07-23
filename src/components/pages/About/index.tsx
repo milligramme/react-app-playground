@@ -13,20 +13,20 @@ const About: React.FunctionComponent = () => {
   const marks = [
     {
       value: 0,
-      label: "🦜"
+      label: "🦜",
     },
     {
       value: 120,
-      label: "🐈"
+      label: "🐈",
     },
     {
       value: 300,
-      label: "🎂"
+      label: "🎂",
     },
     {
       value: 1200,
-      label: "🤡"
-    }
+      label: "🤡",
+    },
   ];
 
   return (
