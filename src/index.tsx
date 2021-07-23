@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -14,15 +15,26 @@ import muiThemeOptions from "./MuiThemeOptions";
 
 const theme = createTheme(muiThemeOptions);
 const { store } = configureStore(history);
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+      staleTime: 300000
+    }
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
     <CssBaseline />
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <MuiThemeProvider theme={theme}>
-          <App />
-        </MuiThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <MuiThemeProvider theme={theme}>
+            <App />
+          </MuiThemeProvider>
+        </QueryClientProvider>
       </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
