@@ -11,6 +11,9 @@ import {
   RadioGroup,
   TextField,
   Typography,
+  FormHelperText,
+  FormGroup,
+  Checkbox,
 } from "@material-ui/core";
 
 import MainTmpl from "components/templates/MainTmpl";
@@ -21,11 +24,16 @@ import { User } from "types";
 interface FormValue {
   name: string;
   user: number;
+  users: number[];
 }
 
 const Forms: React.FunctionComponent = () => {
-  const required = (value: FormValue) =>
-    value === undefined ? "required" : undefined;
+  const required = (value: FormValue) => {
+    if (Array.isArray(value)) {
+      return value.length === 0 ? "required" : undefined;
+    }
+    return value === undefined ? "required" : undefined;
+  };
 
   const { data: users, isLoading, isError, isSuccess } = useListUsersApi();
 
@@ -49,9 +57,14 @@ const Forms: React.FunctionComponent = () => {
             await sleep(1000);
             console.log(JSON.stringify({ values }, null, "  "));
           }}
-          subscription={{ submitting: true, values: true }}
+          subscription={{
+            submitting: true,
+            values: true,
+            errors: true,
+            touched: true,
+          }}
         >
-          {({ handleSubmit, submitting, values }) => (
+          {({ handleSubmit, submitting, values, errors, touched }) => (
             <>
               <pre>{JSON.stringify({ values }, null, "  ")}</pre>
               <Box>
@@ -79,9 +92,14 @@ const Forms: React.FunctionComponent = () => {
                 </Field>
               </Box>
               <Box>
-                <Field name="user" type="radio" subscription={{ value: true }}>
-                  {({ input }) => (
-                    <FormControl>
+                <Field
+                  name="user"
+                  validate={required}
+                  type="radio"
+                  subscription={{ value: true, error: true, touched: true }}
+                >
+                  {({ input, meta }) => (
+                    <FormControl error={!!meta.error && meta.touched}>
                       <FormLabel>Select favorite user</FormLabel>
                       <RadioGroup
                         value={input.value}
@@ -98,9 +116,47 @@ const Forms: React.FunctionComponent = () => {
                             />
                           ))}
                       </RadioGroup>
+                      {!!meta.error && meta.touched && (
+                        <FormHelperText>{meta.error}</FormHelperText>
+                      )}
                     </FormControl>
                   )}
                 </Field>
+              </Box>
+              <Box>
+                <FormControl error={!!errors?.users && touched?.users}>
+                  <FormLabel>Select favorite users</FormLabel>
+                  <FormGroup row={true}>
+                    {isSuccess &&
+                      (users as User[]).map((user) => (
+                        <FormControlLabel
+                          key={user.id}
+                          name="users"
+                          value={String(user.id)}
+                          control={
+                            <Field
+                              name="users"
+                              validate={required}
+                              type="checkbox"
+                              subscription={{
+                                value: true,
+                                error: true,
+                                touched: true,
+                              }}
+                            >
+                              {({ input }) => (
+                                <Checkbox onChange={input.onChange} />
+                              )}
+                            </Field>
+                          }
+                          label={`${user.name} (${user.email})`}
+                        />
+                      ))}
+                  </FormGroup>
+                  {!!errors?.users && touched?.users && (
+                    <FormHelperText>{errors?.users}</FormHelperText>
+                  )}
+                </FormControl>
               </Box>
               <Box>
                 <Button
