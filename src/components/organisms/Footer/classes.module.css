@@ -1,0 +1,16 @@
+.BottomNavigation.BottomNavigation {
+  position: fixed;
+  bottom: 0;
+}
+
+.BottomNavigationAction.BottomNavigationAction {
+  border-left: 1px #aaa solid;
+  padding: 6px;
+  background-color: #fefefe;
+  width: 240px;
+  max-width: unset;
+}
+
+.BottomNavigationActionWrapper.BottomNavigationActionWrapper {
+  padding: 12px;
+}
