@@ -15,7 +15,7 @@ import {
   Paper,
   TablePagination,
 } from "@mui/material";
-import { AddCircle as AddIcon } from "@material-ui/icons";
+import { AddCircle as AddIcon } from "@mui/icons-material";
 
 import MainTmpl from "components/templates/MainTmpl";
 import { GlobalState } from "state/Store/ducks";

@@ -4,7 +4,7 @@ import {
   OutlinedInput,
   IconButton,
 } from "@mui/material";
-import { Done as DoneIcon } from "@material-ui/icons";
+import { Done as DoneIcon } from "@mui/icons-material";
 
 import { IProps } from "./types";
 import classes from "./classes.module.css";

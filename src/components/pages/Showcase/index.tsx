@@ -30,7 +30,7 @@ import {
   FormHelperText,
   Switch,
 } from "@mui/material";
-import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
+import { Info as InfoIcon, Close as CloseIcon } from "@mui/icons-material";
 
 import classes from "./classes.module.css";
 import MainTmpl from "components/templates/MainTmpl";

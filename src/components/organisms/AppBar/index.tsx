@@ -7,7 +7,7 @@ import {
   Toolbar,
   CircularProgress,
 } from "@mui/material";
-import { Menu as MenuIcon } from "@material-ui/icons";
+import { Menu as MenuIcon } from "@mui/icons-material";
 
 import { GlobalState } from "state/Store/ducks";
 import { PageStatusState } from "state/Store/ducks/PageStatus";

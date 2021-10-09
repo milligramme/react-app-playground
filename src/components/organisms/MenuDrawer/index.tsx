@@ -4,7 +4,7 @@ import {
   Info as InfoIcon,
   FormatListBulleted as TodosIcon,
   ShoppingCart as ShowcaseIcon,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 
 import DrawerListItem from "./DrawerListItem";
 import { IProps, ListMap } from "./types";
