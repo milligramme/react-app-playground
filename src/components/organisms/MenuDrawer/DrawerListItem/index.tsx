@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { ListItem, ListItemIcon, ListItemText } from "@mui/material";
 
 import classes from "./classes.module.css";
 import { ListMap } from "../types";

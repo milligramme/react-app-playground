@@ -3,7 +3,7 @@ import {
   TableCell,
   OutlinedInput,
   IconButton,
-} from "@material-ui/core";
+} from "@mui/material";
 import { Done as DoneIcon } from "@material-ui/icons";
 
 import { IProps } from "./types";

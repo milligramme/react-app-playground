@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useQueryClient } from "react-query";
 
-import { Box, Typography, Slider, Button } from "@material-ui/core";
+import { Box, Typography, Slider, Button } from "@mui/material";
 
 import MainTmpl from "components/templates/MainTmpl";
 

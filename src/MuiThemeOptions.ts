@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@material-ui/core/styles/createTheme";
+import { ThemeOptions } from "@mui/material/styles/createTheme";
 
 const muiThemeOptions: ThemeOptions = {
   overrides: {

@@ -13,7 +13,7 @@ import {
   FormHelperText,
   FormGroup,
   Checkbox,
-} from "@material-ui/core";
+} from "@mui/material";
 
 import MainTmpl from "components/templates/MainTmpl";
 import { sleep } from "lib/helpers";

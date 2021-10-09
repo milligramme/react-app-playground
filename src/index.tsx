@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 import "./index.css";
 import App from "./App";

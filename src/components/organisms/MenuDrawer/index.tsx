@@ -1,4 +1,4 @@
-import { Drawer, List } from "@material-ui/core";
+import { Drawer, List } from "@mui/material";
 import {
   Home as HomeIcon,
   Info as InfoIcon,

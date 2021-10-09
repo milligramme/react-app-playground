@@ -14,7 +14,7 @@ import {
   TableHead,
   Paper,
   TablePagination,
-} from "@material-ui/core";
+} from "@mui/material";
 import { AddCircle as AddIcon } from "@material-ui/icons";
 
 import MainTmpl from "components/templates/MainTmpl";

@@ -6,7 +6,7 @@ import {
   IconButton,
   Toolbar,
   CircularProgress,
-} from "@material-ui/core";
+} from "@mui/material";
 import { Menu as MenuIcon } from "@material-ui/icons";
 
 import { GlobalState } from "state/Store/ducks";

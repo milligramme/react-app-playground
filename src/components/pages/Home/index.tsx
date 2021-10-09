@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 
 import MainTmpl from "components/templates/MainTmpl";
 import Canvas from "components/atoms/Canvas";

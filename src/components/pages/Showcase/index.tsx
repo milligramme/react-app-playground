@@ -29,7 +29,7 @@ import {
   MenuItem,
   FormHelperText,
   Switch,
-} from "@material-ui/core";
+} from "@mui/material";
 import { Info as InfoIcon, Close as CloseIcon } from "@material-ui/icons";
 
 import classes from "./classes.module.css";
