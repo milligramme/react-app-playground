@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Form, Field } from "react-final-form";
 
 import {
@@ -35,16 +34,18 @@ const Forms: React.FunctionComponent = () => {
     return value === undefined ? "required" : undefined;
   };
 
-  const { data: users, isLoading, isError, isSuccess } = useListUsersApi();
-
-  useEffect(() => {
-    if (isError) {
-      console.log("error occured");
-    }
-  }, [isError]);
+  const {
+    data: users,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useListUsersApi({ cacheTime: 5000 });
 
   if (isLoading) {
-    <MainTmpl>loading...</MainTmpl>;
+    return <MainTmpl>loading...</MainTmpl>;
+  }
+  if (isError) {
+    return <MainTmpl>error...</MainTmpl>;
   }
 
   return (

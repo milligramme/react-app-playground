@@ -1,10 +1,12 @@
 import { useCallback, useState } from "react";
+import { useQueryClient } from "react-query";
 
-import { Box, Typography, Slider } from "@material-ui/core";
+import { Box, Typography, Slider, Button } from "@material-ui/core";
 
 import MainTmpl from "components/templates/MainTmpl";
 
 const About: React.FunctionComponent = () => {
+  const queryClient = useQueryClient();
   const [slice, setSlice] = useState(500);
   const handleTextLengthChange = useCallback((_e, value) => {
     setSlice(Number(value));
@@ -29,9 +31,15 @@ const About: React.FunctionComponent = () => {
     },
   ];
 
+  const handleUsersInvalidate = useCallback(() => {
+    console.log("invalidate all cached data");
+    queryClient.invalidateQueries();
+  }, [queryClient]);
+
   return (
     <MainTmpl>
       <Box>
+        <Button onClick={handleUsersInvalidate}>invalidate</Button>
         <Slider
           marks={marks}
           min={0}
