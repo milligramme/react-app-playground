@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { MuiThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import "./index.css";
@@ -31,9 +31,9 @@ ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <QueryClientProvider client={queryClient}>
-          <MuiThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
             <App />
-          </MuiThemeProvider>
+          </ThemeProvider>
         </QueryClientProvider>
       </ConnectedRouter>
     </Provider>
