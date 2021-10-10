@@ -19,7 +19,6 @@ const Footer: React.FunctionComponent = () => {
       <BottomNavigationAction
         classes={{
           root: classes.BottomNavigationAction,
-          wrapper: classes.BottomNavigationActionWrapper,
         }}
         label="A"
         value="A"
@@ -28,7 +27,6 @@ const Footer: React.FunctionComponent = () => {
       <BottomNavigationAction
         classes={{
           root: classes.BottomNavigationAction,
-          wrapper: classes.BottomNavigationActionWrapper,
         }}
         label="B"
         value="B"
