@@ -1,57 +1,83 @@
 import { ThemeOptions } from "@mui/material/styles/createTheme";
 
 const muiThemeOptions: ThemeOptions = {
-  overrides: {
+  components: {
     MuiButton: {
-      sizeSmall: { fontSize: 12, fontWeight: 600 },
-      sizeLarge: { fontSize: 16, fontWeight: 600 },
-      label: { textTransform: "none" },
-    },
-  },
-  props: {
-    MuiButton: {
-      size: "small",
-      disableRipple: true,
+      styleOverrides: {
+        sizeSmall: { fontSize: 12, fontWeight: 600 },
+        sizeLarge: { fontSize: 16, fontWeight: 600 },
+      },
+      defaultProps: {
+        size: "small",
+        disableRipple: true,
+        // label: { textTransform: "none" },
+      },
     },
     MuiButtonBase: {
-      disableRipple: true,
+      defaultProps: {
+        disableRipple: true,
+      },
     },
     MuiFilledInput: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiFormControl: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiFormHelperText: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiIconButton: {
-      size: "small",
-      disableRipple: true,
+      defaultProps: {
+        size: "small",
+        disableRipple: true,
+      },
     },
     MuiInputBase: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiInputLabel: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiListItem: {
-      dense: true,
+      defaultProps: {
+        dense: true,
+      },
     },
     MuiOutlinedInput: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiFab: {
-      size: "small",
+      defaultProps: {
+        size: "small",
+      },
     },
     MuiTable: {
-      size: "small",
+      defaultProps: {
+        size: "small",
+      },
     },
     MuiTextField: {
-      margin: "dense",
+      defaultProps: {
+        margin: "dense",
+      },
     },
     MuiToolbar: {
-      variant: "dense",
+      defaultProps: {
+        variant: "dense",
+      },
     },
   },
   palette: {
