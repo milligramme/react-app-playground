@@ -8,7 +8,7 @@ import Showcase from "components/pages/Showcase";
 
 const App: React.FunctionComponent = () => {
   return (
-    <Router>
+    <Router basename="/react-app-playground">
       <Switch>
         <Route strict={true} exact={true} path="/about">
           <About />
